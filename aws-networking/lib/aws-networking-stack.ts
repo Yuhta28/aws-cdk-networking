@@ -1,6 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
+import { Architecture } from 'aws-cdk-lib/aws-lambda';
 
 export class AwsNetworkingStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -13,7 +14,11 @@ export class AwsNetworkingStack extends cdk.Stack {
       natGateways: 0,
       natGatewaySubnets: {
         subnetType: ec2.SubnetType.PUBLIC
-      }
+      },
+      subnetConfiguration: [
+        { name: "Private",  subnetType: ec2.SubnetType.PRIVATE_ISOLATED, cidrMask: 24 },
+        { name: "Public",  subnetType: ec2.SubnetType.PUBLIC, cidrMask: 24 },
+      ],
     });
 
     // EC2インスタンスを作成する
@@ -22,6 +27,7 @@ export class AwsNetworkingStack extends cdk.Stack {
       instanceType: ec2.InstanceType.of(ec2.InstanceClass.T3, ec2.InstanceSize.MICRO),
       machineImage: new ec2.AmazonLinuxImage(),
       keyName: 'WindowsKey',
-    });
+      instanceName: 'CDK-EC2',
+    }); 
   }
 }
