@@ -28,6 +28,9 @@ export class AwsNetworkingStack extends cdk.Stack {
       machineImage: new ec2.AmazonLinuxImage(),
       keyName: 'WindowsKey',
       instanceName: 'CDK-EC2',
+      vpcSubnets: {
+        subnetType: ec2.SubnetType.PUBLIC
+        },
     }); 
   }
 }
