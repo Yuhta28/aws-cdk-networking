@@ -1,0 +1,24 @@
+{
+  "name": "aws-cdk-networking",
+  "version": "1.0.0",
+  "description": "Learn AWS CDK for ts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Yuhta28/aws-cdk-networking.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yuhta28/aws-cdk-networking/issues"
+  },
+  "homepage": "https://github.com/Yuhta28/aws-cdk-networking#readme",
+  "devDependencies": {
+    "aws-cdk": "^2.74.0",
+    "npm": "^9.6.4",
+    "typescript": "^5.0.4"
+  }
+}
